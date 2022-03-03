@@ -1,0 +1,36 @@
+{
+  "name": "@depasquale/three-wizard",
+  "version": "0.0.9",
+  "description": "Create a Three.js scene without the boilerplate",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DePasqualeOrg/three-wizard"
+  },
+  "author": "Anthony DePasquale (anthony@depasquale.org)",
+  "license": "MIT",
+  "main": "build/three-wizard.js",
+  "files": [
+    "README.md",
+    "LICENSE.md",
+    "package.json",
+    "build",
+    "example"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "example": "node scripts/webserver.js"
+  },
+  "devDependencies": {
+    "@depasquale/eslint-config": "^0.0.4",
+    "@types/three": "^0.138.0",
+    "@typescript-eslint/eslint-plugin": "^5.13.0",
+    "@typescript-eslint/parser": "^5.13.0",
+    "eslint": "^8.10.0",
+    "eslint-plugin-import": "^2.25.4",
+    "express": "^4.17.3"
+  },
+  "dependencies": {
+    "three": "^0.138.3"
+  }
+}
