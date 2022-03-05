@@ -4,6 +4,7 @@ Copyright 2022, Anthony DePasquale (anthony@depasquale.org)
 */
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import ImmersiveControls from '@depasquale/three-immersive-controls';
 class Wizard {
     static setup = () => {
         const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.01, 1000);
@@ -27,28 +28,29 @@ class Wizard {
         }, false);
         return { camera, renderer, scene };
     };
-    constructor({ controls = 'static', initialPosition = new THREE.Vector3(0, 1.6, 5) } = {}) {
+    constructor(options = {}) {
+        options.controls = options.controls || 'static';
+        options.initialPosition = options.initialPosition || new THREE.Vector3(0, 1.6, 5);
         const { camera, renderer, scene } = Wizard.setup();
         this.camera = camera;
         this.renderer = renderer;
         this.scene = scene;
         // Controls
-        if (controls.toLowerCase() === 'orbitcontrols') {
+        if (options.controls.toLowerCase() === 'orbitcontrols') {
             this.controls = new OrbitControls(this.camera, this.renderer.domElement);
             this.controls.enableDamping = true;
             // !! Figure out better solution for initial position
-            this.camera.position.copy(initialPosition);
+            this.camera.position.copy(options.initialPosition);
             this.controls.update();
         }
-        else if (controls.toLowerCase() === 'immersivecontrols') {
-            // !! Still need to implement ImmersiveControls
-            // this.controls = new ImmersiveControls(this.camera, this.renderer, this.scene, options);
+        else if (options.controls.toLowerCase() === 'immersivecontrols') {
+            this.controls = new ImmersiveControls(this.camera, this.renderer, this.scene, options);
         }
-        else if (controls.toLowerCase() === 'static') {
-            this.camera.position.copy(initialPosition);
+        else if (options.controls.toLowerCase() === 'static') {
+            this.camera.position.copy(options.initialPosition);
         }
         else {
-            throw new Error(`Unknown controls type ${controls} specified`);
+            throw new Error(`Unknown controls type ${options.controls} specified`);
         }
     }
     start(renderLoop) {

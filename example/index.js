@@ -3,6 +3,7 @@ import Wizard from '../build/three-wizard.js'; // npm: '@depasquale/three-wizard
 
 const wizard = new Wizard({
   controls: 'OrbitControls',
+  // controls: 'ImmersiveControls',
 });
 
 const { scene } = wizard;

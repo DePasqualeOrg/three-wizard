@@ -31,6 +31,7 @@
     "express": "^4.17.3"
   },
   "dependencies": {
+    "@depasquale/three-immersive-controls": "^0.0.2",
     "three": "^0.138.3"
   }
 }

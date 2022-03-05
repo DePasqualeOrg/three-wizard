@@ -23,7 +23,8 @@ npm install @depasquale/three-wizard
 import Wizard from '@depasquale/three-wizard';
 
 const wizard = new Wizard({
-  controls: 'OrbitControls', // Choose from `OrbitControls` and `static` (more options coming soon)
+  // Choose from `ImmersiveControls`, `OrbitControls`, and `static` (more options coming soon)
+  controls: 'OrbitControls',
 });
 
 // You can access these if necessary
@@ -43,6 +44,14 @@ const render = () => {
 
 wizard.start(render);
 ```
+
+### Options
+
+- `controls: 'ImmersiveControls' | 'OrbitControls' | 'static'`
+  - The type of controls to be used in the scene. Default is `static`.
+- `initialPosition: THREE.Vector3`
+  - The camera's initial position in the scene. Default is `new THREE.Vector3(0, 1.6, 5)`.
+- If using [ImmersiveControls](https://github.com/DePasqualeOrg/three-immersive-controls), the options for these controls can be included here as well.
 
 ### Example
 
