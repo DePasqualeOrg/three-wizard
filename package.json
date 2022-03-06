@@ -1,6 +1,6 @@
 {
   "name": "@depasquale/three-wizard",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Create a Three.js scene without the boilerplate",
   "type": "module",
   "repository": {
