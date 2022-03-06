@@ -35,7 +35,15 @@ class Wizard {
 
     // CSS
     const style = document.createElement('style');
-    style.innerHTML = 'body { margin: 0; background-color: #000; overscroll-behavior: none; touch-action: none; }';
+    style.innerHTML = `
+      html, body {
+        background-color: #000;
+        margin: 0;
+        height: 100%;
+        overscroll-behavior: none;
+        touch-action: none;
+        overflow: hidden;
+      }`;
     document.head.appendChild(style);
 
     window.addEventListener('resize', () => {
