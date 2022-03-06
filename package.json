@@ -1,6 +1,6 @@
 {
   "name": "@depasquale/three-wizard",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Create a Three.js scene without the boilerplate",
   "type": "module",
   "repository": {
@@ -14,6 +14,7 @@
     "README.md",
     "LICENSE.md",
     "package.json",
+    "src",
     "build",
     "example"
   ],
@@ -31,7 +32,7 @@
     "express": "^4.17.3"
   },
   "dependencies": {
-    "@depasquale/three-immersive-controls": "^0.0.2",
+    "@depasquale/three-immersive-controls": "^0.0.3",
     "three": "^0.138.3"
   }
 }
