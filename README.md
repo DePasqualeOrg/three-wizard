@@ -62,7 +62,7 @@ npm run example
 
 Or try it [here](https://unpkg.com/@depasquale/three-wizard/example/index.html).
 
-### To-do
+### To do
 
 - Add more controls options
 - Add option to specify a target for the renderer's DOM element, instead of the full browser window
