@@ -59,7 +59,6 @@ class Wizard {
   };
   constructor(options: WizardOptions = {}) {
     options.controls = options.controls || 'static';
-    options.initialPosition = options.initialPosition || new THREE.Vector3(0, 1.6, 5);
 
     const { camera, renderer, scene } = Wizard.setup({ css: options.css });
     this.camera = camera;
@@ -71,12 +70,12 @@ class Wizard {
       this.controls = new OrbitControls(this.camera, this.renderer.domElement);
       this.controls.enableDamping = true;
       // !! Figure out better solution for initial position
-      this.camera.position.copy(options.initialPosition);
+      this.camera.position.copy(options.initialPosition || new THREE.Vector3(0, 0, 4)); // Default camera height is 0
       this.controls.update();
     } else if (options.controls.toLowerCase() === 'immersivecontrols') {
       this.controls = new ImmersiveControls(this.camera, this.renderer, this.scene, options);
     } else if (options.controls.toLowerCase() === 'static') {
-      this.camera.position.copy(options.initialPosition);
+      this.camera.position.copy(options.initialPosition || new THREE.Vector3(0, 1.6, 4));
     } else {
       throw new Error(`Unknown controls type ${options.controls} specified`);
     }
