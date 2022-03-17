@@ -88,3 +88,4 @@ class Wizard {
 }
 
 export default Wizard;
+export { WizardOptions };

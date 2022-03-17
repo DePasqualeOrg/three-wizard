@@ -25,3 +25,4 @@ declare class Wizard {
     start(renderLoop?: Function): void;
 }
 export default Wizard;
+export { WizardOptions };
