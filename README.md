@@ -51,6 +51,9 @@ wizard.start(render);
   - The type of controls to be used in the scene. Default is `static`.
 - `initialPosition: THREE.Vector3`
   - The camera's initial position in the scene. Default is `new THREE.Vector3(0, 1.6, 5)`.
+- `css: true | false`
+  - Apply CSS to the page. Default is `true`.
+
 - If using [ImmersiveControls](https://github.com/DePasqualeOrg/three-immersive-controls), the options for these controls can be included here as well.
 
 ### Example

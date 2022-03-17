@@ -10,6 +10,7 @@ import ImmersiveControls from '@depasquale/three-immersive-controls';
 interface WizardOptions {
   controls?: 'ImmersiveControls' | 'OrbitControls' | 'static',
   initialPosition?: THREE.Vector3,
+  css?: boolean,
 }
 
 interface Wizard {
@@ -20,7 +21,7 @@ interface Wizard {
 }
 
 class Wizard {
-  static setup = () => {
+  static setup = ({ css = true } = {}) => {
     const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.01, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setPixelRatio(window.devicePixelRatio);
@@ -34,17 +35,19 @@ class Wizard {
     container.appendChild(renderer.domElement);
 
     // CSS
-    const style = document.createElement('style');
-    style.innerHTML = `
-      html, body {
-        background-color: #000;
-        margin: 0;
-        height: 100%;
-        overscroll-behavior: none;
-        touch-action: none;
-        overflow: hidden;
-      }`;
-    document.head.appendChild(style);
+    if (css === true) {
+      const style = document.createElement('style');
+      style.innerHTML = `
+        html, body {
+          background-color: #000;
+          margin: 0;
+          height: 100%;
+          overscroll-behavior: none;
+          touch-action: none;
+          overflow: hidden;
+        }`;
+      document.head.appendChild(style);
+    }
 
     window.addEventListener('resize', () => {
       camera.aspect = window.innerWidth / window.innerHeight;
@@ -58,7 +61,7 @@ class Wizard {
     options.controls = options.controls || 'static';
     options.initialPosition = options.initialPosition || new THREE.Vector3(0, 1.6, 5);
 
-    const { camera, renderer, scene } = Wizard.setup();
+    const { camera, renderer, scene } = Wizard.setup({ css: options.css });
     this.camera = camera;
     this.renderer = renderer;
     this.scene = scene;
