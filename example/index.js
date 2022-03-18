@@ -1,16 +1,20 @@
 import * as THREE from 'three';
-import Wizard from '../build/three-wizard.js'; // npm: '@depasquale/three-wizard'
+import Wizard from '@depasquale/three-wizard';
 
 const wizard = new Wizard({
-  controls: 'OrbitControls',
-  // controls: 'ImmersiveControls',
+  controls: 'OrbitControls', /* 'ImmersiveControls' | 'OrbitControls' | 'static' */
+  initialPosition: new THREE.Vector3(0, 1.6, 5),
 });
 
-const { scene } = wizard;
+const { scene, controls } = wizard;
+
+const icosahedronPosition = new THREE.Vector3(0, 1, 0);
+
+controls.target.copy(icosahedronPosition);
 
 // Lights
-const ambientLight = new THREE.AmbientLight(0xffffff, 1);
-const directionalLight = new THREE.DirectionalLight(0xffffff, 0.3);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+const directionalLight = new THREE.DirectionalLight(0xffffff, 0.4);
 directionalLight.position.set(0, 1, -1);
 scene.add(ambientLight, directionalLight);
 
@@ -20,6 +24,7 @@ const floorMaterial = new THREE.MeshStandardMaterial({
   color: 0x333333,
   metalness: 0.2,
   roughness: 0.4,
+  side: THREE.DoubleSide,
 });
 const floor = new THREE.Mesh(floorGeometry, floorMaterial);
 floor.rotation.x = -Math.PI / 2;
@@ -30,7 +35,7 @@ scene.add(floor);
 const icosahedronGeometry = new THREE.IcosahedronGeometry(1, 0);
 const icosahedronMaterial = new THREE.MeshNormalMaterial();
 const icosahedron = new THREE.Mesh(icosahedronGeometry, icosahedronMaterial);
-icosahedron.position.y = 1;
+icosahedron.position.copy(icosahedronPosition);
 scene.add(icosahedron);
 
 const render = () => {
@@ -41,6 +46,7 @@ const render = () => {
 
 wizard.start(render);
 
+// Show indicator while loading packages with import map
 document.onreadystatechange = () => {
   if (document.readyState !== 'complete') {
     document.querySelector('#loadingIndicator').style.visibility = 'visible';
