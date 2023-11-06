@@ -1,6 +1,6 @@
 /*!
 Three.js Wizard
-Copyright 2022, Anthony DePasquale (anthony@depasquale.org)
+Copyright 2023, Anthony DePasquale
 */
 
 import * as THREE from 'three';

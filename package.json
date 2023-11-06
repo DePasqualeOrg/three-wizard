@@ -1,6 +1,6 @@
 {
   "name": "@depasquale/three-wizard",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Create a Three.js scene without the boilerplate",
   "type": "module",
   "repository": {
@@ -23,18 +23,18 @@
     "example": "node scripts/webserver.js"
   },
   "devDependencies": {
-    "@depasquale/eslint-config-typescript": "^0.0.1",
-    "@types/three": "^0.140.0",
-    "@typescript-eslint/eslint-plugin": "^5.22.0",
-    "@typescript-eslint/parser": "^5.22.0",
-    "eslint": "^8.15.0",
-    "eslint-plugin-import": "^2.26.0",
-    "express": "^4.18.1",
-    "typescript": "^4.6.4"
+    "@depasquale/eslint-config-typescript": "^0.0.12",
+    "@types/three": "^0.158.1",
+    "@typescript-eslint/eslint-plugin": "^6.9.1",
+    "@typescript-eslint/parser": "^6.9.1",
+    "eslint": "^8.53.0",
+    "eslint-plugin-import": "^2.29.0",
+    "express": "^4.18.2",
+    "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@depasquale/three-immersive-controls": "^0.0.9",
-    "@depasquale/three-wizard": "^0.0.12",
-    "three": "^0.140.0"
+    "@depasquale/three-immersive-controls": "^0.0.14",
+    "@depasquale/three-wizard": "^0.0.13",
+    "three": "^0.158.0"
   }
 }
